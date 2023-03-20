@@ -2,6 +2,7 @@ import { Component } from "react";
 // import API from "./Api/Api"
 
 import Searchbar from "./Searchbar/Searchbar";
+import ImageGallery from 'components/ImageGallery/ImageGallery';
 
 export default class App extends Component {
 
@@ -25,7 +26,8 @@ handleSubmitInput = newQuery => {
   render() {
     return (
       <>
-      <Searchbar onSubmit={this.handleSubmitInput} />
+        <Searchbar onSubmit={this.handleSubmitInput} />
+        <ImageGallery/>
       </>
     )
   }
