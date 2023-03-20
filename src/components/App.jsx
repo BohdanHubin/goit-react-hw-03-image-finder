@@ -1,16 +1,35 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import { Component } from "react";
+// import API from "./Api/Api"
+
+import Searchbar from "./Searchbar/Searchbar";
+
+export default class App extends Component {
+
+  state = {
+    status: 'idle',
+    query: [],
+    page: 1,
+    name: '',
+    modalAlt: '',
+    showModal: false,
+    modalImg: '',
+    error: null,
+  };
+
+handleSubmitInput = newQuery => {
+    if (newQuery !== this.state.name) {
+      this.setState({ name: newQuery, page: 1, status: 'pending' });
+    }
+  };
+
+  render() {
+    return (
+      <>
+      <Searchbar onSubmit={this.handleSubmitInput} />
+      </>
+    )
+  }
+}
+
+
+
