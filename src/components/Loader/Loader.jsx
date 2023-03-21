@@ -4,7 +4,7 @@ import s from 'components/styles.module.css';
 function Spinner() {
   return (
     <div className={s.Loader}>
-      <RotatingLines strokeColor="blue" strokeWidth="4" animationDuration="1" width="196" visible={true} />
+      <RotatingLines strokeColor="grey" strokeWidth="4" animationDuration="1" width="196" visible={true} />
     </div>
   );
 }
