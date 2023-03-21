@@ -8,7 +8,7 @@ function ImageGallery({ query, onClickImg }) {
     <ul className={s.ImageGallery}>
       {query.map(({ id, webformatURL, largeImageURL, tags }) => {
         return (
-          <ImageGalleryItem key={id} src={webformatURL} tags={tags} dataSrc={largeImageURL} onClick={onClickImg} />
+          <ImageGalleryItem key={id} src={webformatURL} tags={tags} dataSrc={largeImageURL} onClickImg={onClickImg} />
         );
       })}
     </ul>

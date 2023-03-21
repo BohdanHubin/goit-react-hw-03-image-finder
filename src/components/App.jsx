@@ -33,13 +33,6 @@ componentDidUpdate(_, prevState) {
     const prevPage = prevState.page;
     const nextPage = this.state.page;
 
-    if (nextPage > 1) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
-    }
-
     if (prevQuery !== nextQuery) {
       this.setState({ query: [], status: 'pending' });
     }
@@ -76,7 +69,11 @@ handleSubmitInput = newQuery => {
 handleClickImg = event => {
     const imgForModal = event.target.dataset.src;
     const altForModal = event.target.alt;
-    this.setState({
+  if (event.target.nodeName !== 'IMG') {
+        return;
+      }  
+  
+  this.setState({
       showModal: true,
       modalImg: imgForModal,
       modalAlt: altForModal,
@@ -109,7 +106,7 @@ toggleModal = () => {
       return (
         <div>
           <Searchbar onSubmit={this.handleSubmitInput} />
-          {query.length > 0 && <ImageGallery query={query} />}
+          {this.state.query.length > 0 && <ImageGallery query={query} />}
           <Spinner className={s.Loader} />
         </div>
       );
@@ -130,7 +127,7 @@ toggleModal = () => {
           <div>
             <Searchbar onSubmit={this.handleSubmitInput} />
             <ImageGallery onClickImg={this.handleClickImg} query={this.state.query} />
-            <Button handleClickBtn={this.handleClickBtn} />
+            {this.state.query.length > 11 && <Button handleClickBtn={this.handleClickBtn} />}
           </div>
         </>
       );
