@@ -4,6 +4,8 @@ import { Component } from "react";
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "components/ImageGallery/ImageGallery";
 import Button from "components/Button/Button";
+import Modal from "components/Modal/Modal";
+// import Spinner from "components/Loader/Spinner";
 
 export default class App extends Component {
 
